@@ -92,7 +92,11 @@ h1,h2,h3,h4,h5,h6,strong,th {font-weight:700;}
 }
 .portfolio-list .item-link {
   display: block;
-  padding: 5px 0;
+  padding: 10px;
+  margin: 6px 0;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
 }
 .portfolio-list .item-link.site {}
 .portfolio-list .item-link.github {}
