@@ -4,9 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>SangMin Portfolio List</title>
 </head>
 <body>
-    <h1>Hello World!!</h1>
+  <div class="wrap">
+    <div class="portfolio-list">
+      <ul>
+        <li class="item">
+          <div class="item-title"><p>XR Global</p>
+            <div class="item-link-box">
+              <a href="//github.com/sangmin9412/xr-global/" target="_blank" class="item-link github">Github</a>
+              <a href="//sangmin9412.github.io/xr-global/" target="_blank" class="item-link site">Site</a>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title"><p>Apple Clone</p>
+            <div class="item-link-box">
+              <a href="//github.com/sangmin9412/apple-clone/" target="_blank" class="item-link github">Github</a>
+              <a href="//sangmin9412.github.io/apple-clone/" target="_blank" class="item-link site">Site</a>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title"><p>React Study</p>
+            <div class="item-link-box">
+              <a href="//github.com/sangmin9412/react-study/" target="_blank" class="item-link github">Github</a>
+              <a href="//sangmin9412.github.io/react-study/" target="_blank" class="item-link site">Site</a>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title"><p>React Nodebird</p>
+            <div class="item-link-box"><a href="//github.com/sangmin9412/react-nodebird/tree/myWorkBranch" target="_blank" class="item-link github">Github</a></div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title"><p>Java Project</p>
+            <div class="item-link-box"><a href="//github.com/sangmin9412/FinalProject" target="_blank" class="item-link github">Github</a></div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title"><p>Web Agency Project</p>
+            <div class="item-link-box"><a href="//sangmin9412.github.io/portfolio-first/static/main/main.html" target="_blank" class="item-link site">Site</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    NodeList.prototype.forEach = Array.prototype.forEach;
+    (function(){
+      const item = document.querySelectorAll(".portfolio-list .item");
+      item.forEach(v => {
+        v.querySelector(".item-title").addEventListener("mouseenter", itemAddClass);
+        v.querySelector(".item-title").addEventListener("mouseleave", itemRemoveClass);
+      });
+
+      function itemAddClass (e) {
+        const title = e.currentTarget.querySelector("p");
+        const linkBox = e.currentTarget.querySelectorAll(".item-link-box");
+        title.classList.add("active");
+        linkBox.forEach(v => {
+          v.classList.add("active");
+        });
+      }
+
+      function itemRemoveClass (e) {
+        const title = e.currentTarget.querySelector("p");
+        const linkBox = e.currentTarget.querySelectorAll(".item-link-box");
+        title.classList.remove("active");
+        linkBox.forEach(v => {
+          v.classList.remove("active");
+        });
+      }
+    }());
+  </script>
 </body>
 </html>
