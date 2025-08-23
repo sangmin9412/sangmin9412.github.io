@@ -265,9 +265,22 @@
         item.forEach((v) => {
           v.querySelector(".item-title").addEventListener("mouseenter", itemAddClass);
           v.querySelector(".item-title").addEventListener("mouseleave", itemRemoveClass);
+
+          v.querySelector(".item-title").addEventListener("click", itemClick);
         });
 
+        function itemClick(e) {
+          if (window.innerWidth > 860) return;
+          const title = e.currentTarget.querySelector("p");
+          const linkBox = e.currentTarget.querySelectorAll(".item-link-box");
+          title.classList.toggle("active");
+          linkBox.forEach((v) => {
+            v.classList.toggle("active");
+          });
+        }
+
         function itemAddClass(e) {
+          if (window.innerWidth < 860) return;
           const title = e.currentTarget.querySelector("p");
           const linkBox = e.currentTarget.querySelectorAll(".item-link-box");
           title.classList.add("active");
@@ -277,6 +290,7 @@
         }
 
         function itemRemoveClass(e) {
+          if (window.innerWidth < 860) return;
           const title = e.currentTarget.querySelector("p");
           const linkBox = e.currentTarget.querySelectorAll(".item-link-box");
           title.classList.remove("active");
